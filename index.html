@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="content-security-policy" 
+    content="default-src 'self';
+            style-src 'unsafe-inline' 'self' https://fonts.googleapis.com/css;
+            script-src 'unsafe-inline' 'self';
+            connect-src 'self' https://api.themoviedb.org/3/search/person  https://api.themoviedb.org/3/movie/;
+            img-src 'self' https://image.tmdb.org/">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+        
+    <div id="home" class = " page active"  >
+        
+        <form action="post">
+            <label for="search" class="search">search</label><br>
+            <input type="text" name="search" id="search" ><br>
+            <button type="button"data-target="#home"> submit</button>
+        </form>
+    </div>
+    <div id="actors" class ="page" data-target="#actors">
+        
+    </div>
+    <div id="movies" class="page" data-target="movies"></div>
+    <div id="movie" class="page" data-target="movie"></div>
+<script defer src="main.js"></script>
+</body>
+</html>

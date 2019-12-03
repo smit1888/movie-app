@@ -1,0 +1,261 @@
+html{
+    background-color: hsl(53, 48%, 87%);
+    font-size:16px;
+}
+.page{
+    display:none;
+    position: absolute;
+}
+
+.active{
+    display: block;
+}
+#search{
+    align-self: auto;
+    font-size: 1.953rem;
+    width: 200px;
+    height: 50px;
+    margin-top: 20px;
+    border: 3px solid;
+    box-shadow: 2px 2px 2px hsl(0, 3%, 29%);
+    border-radius: 10px;
+    background-color:hsl(0, 0%, 87%) ;
+    color: hsl(0, 0%, 30%);
+}
+#home{
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    margin-top: -50px;
+    /* margin-left: -100px; */
+}
+#actors{
+    
+    color: hsl(53, 33%, 19%);
+    font-size: 1.953rem;
+    top:10%;
+    left:20%;  
+    margin-top: -50px;
+    
+   
+}
+#actors p{
+    
+    
+    background-color: hsl(0, 0%, 87%);
+}
+#movies{
+    color: hsl(53, 26%, 23%);
+    font-size: 1.25rem;
+    top:10%;
+    left:30%;
+    
+    
+}
+
+#movies img{
+    margin-top: 5rem;
+    border: 2px solid;
+}
+
+#movie{
+    color: hsl(53, 6%, 24%);
+    font-size: 1.953rem;
+    top:10%;
+    left:30%;
+    margin-top: -50px;
+    margin-left: -100px;
+    
+}
+
+.search{
+    color: hsl(0, 1%, 25%);
+   font-size: 3.052rem;
+   margin: 40px;
+   text-shadow: 1px 1px 1px hsl(0, 1%, 20%);
+   
+   
+}
+
+button{
+    font-size: 1.953rem;
+    margin:50px;
+    margin-top: 30px;
+    padding:3px;
+    border-radius: 10px;
+    border: 3px solid;
+    box-shadow: 2px 2px 2px hsl(0, 5%, 31%);
+    background-color: hsl(53, 35%, 21%);
+    color: hsl(53, 76%, 75%);
+}
+h1{
+    
+   
+    left:40%;
+    margin-top: -50px;
+    margin-left: -100px; 
+}
+.cast{
+    display: grid;
+    grid-template-rows: 1fr auto;
+    width:185px;
+    margin: 2rem;
+    border:2px solid;
+}
+.box{
+    display: grid;
+    grid-template-rows: 1fr auto;
+    width:185px;
+    margin: 2rem;
+    border:2px solid;
+}
+.FAB{
+    width:50px;
+    height:50px;
+    top:80%;
+    left:80%;  
+    position: fixed;
+    
+    
+}
+
+@media screen and (min-width:550px){
+    #home{
+        position: absolute;
+        top: 35%;
+        left: 30%;
+        /* margin-top: -50px; */
+        /* margin-left: -100px; */
+    }
+    #search{
+        font-size: 2.441rem;
+        width: 250px;
+        height: 50px;
+        margin-top: 20px;
+        border: 3px solid;
+        box-shadow: 2px 2px 2px rgb(58, 55, 55);
+        border-radius: 10px;
+    } 
+    .search{
+        font-size: 3.252rem;
+        margin: 50px;
+        text-shadow: 1px 1px 1px rgb(14, 13, 13);
+        
+        
+     }
+     button{
+        font-size: 1.95rem;
+        margin:70px;
+        margin-top: 30px;
+        padding:3px;
+        border-radius: 10px;
+        border: 3px solid;
+        box-shadow: 2px 2px 2px rgb(73, 71, 71);
+    }
+    #actors{
+        
+        font-size: 1.953rem;
+        top:10%;
+        left:30%;  
+        margin-top: -50px;
+       
+    }
+    #movies{
+    
+        font-size: 1.953rem;
+        top:10%;
+        left:30%;
+        
+        
+    }
+    #movie{
+        font-size: 1.953rem;
+        top:10%;
+        left:40%;
+        margin-top: -50px;
+        margin-left: -100px;
+    }
+    .FAB{
+        width:60px;
+        height:60px;
+        top:80%;
+        left:90%;
+        
+        position: fixed;
+        
+        
+    }
+    
+
+}
+
+@media screen and (min-width:780px){
+    #home{
+        position: absolute;
+        top: 35%;
+        left: 30%;
+        /* margin-top: -50px; */
+        /* margin-left: -100px; */
+    }
+    #search{
+        font-size: 2.441rem;
+        width: 500px;
+        height: 50px;
+        margin-top: 20px;
+        border: 3px solid;
+        box-shadow: 2px 2px 2px rgb(58, 55, 55);
+        border-radius: 10px;
+    } 
+    .search{
+        font-size: 3.252rem;
+        margin: 150px;
+        text-shadow: 1px 1px 1px rgb(14, 13, 13);
+        
+        
+     }
+     button{
+        font-size: 2.441rem;
+        margin:150px;
+        margin-top: 30px;
+        padding:3px;
+        border-radius: 10px;
+        border: 3px solid;
+        box-shadow: 2px 2px 2px rgb(73, 71, 71);
+    }
+    #actors{
+        
+        font-size: 1.953rem;
+        top:10%;
+        left:40%;  
+        margin-top: -50px;
+       
+    }
+    #movies{
+    
+        font-size: 3.052rem;
+        top:10%;
+        left:30%;
+        
+        
+    }
+    #movie{
+        font-size: 1.953rem;
+        top:10%;
+        left:40%;
+        margin-top: -50px;
+        margin-left: -100px;
+    }
+   
+    .FAB{
+        width:70px;
+        height:70px;
+        top:80%;
+        left:90%;
+        position: fixed;
+        
+        
+    }
+    
+
+}
+
