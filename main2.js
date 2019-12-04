@@ -7,6 +7,12 @@ const app = {
         history.replaceState({}, 'Home', '#home');
         window.addEventListener('popstate', app.pop);  
         button.addEventListener("click",app.clicked);
+        document.getElementById("search").addEventListener("keypress",function(ev){
+            if(ev.keyCode===13){
+                app.clicked(ev);
+                ev.preventDefault();
+            }
+        })
         
     },
     
