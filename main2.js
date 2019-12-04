@@ -1,12 +1,11 @@
 const app = {
     active :"home",
-    theData:null,
+    // theData:null,
     init: ()=>{
-        let page= document.querySelectorAll(".page");
+        
         let button = document.querySelector("button");
         history.replaceState({}, 'Home', '#home');
-        window.addEventListener('popstate', app.pop);
-        
+        window.addEventListener('popstate', app.pop);  
         button.addEventListener("click",app.clicked);
         
     },
@@ -20,12 +19,12 @@ const app = {
             second_page.removeChild(second_page.firstChild);
         }
 
-        let currentPage = ev.target.getAttribute('data-target');
-        console.log(currentPage);
+        
+        
         document.getElementById("home").classList.remove('active');
         second_page.classList.add('active');
 
-        let third_page = document.getElementById('movies');
+        
         
        
         let search = document.getElementById("search").value;
@@ -39,18 +38,18 @@ const app = {
             
         })
         .then(data=>{
-            app.theData = data;
+            // app.theData = data;
             console.log(data);
             let FAB = document.createElement("img");
                 FAB.setAttribute("src","search.svg");
                 FAB.setAttribute("class","FAB");
-                FAB.setAttribute("alt","image is not available");
+                FAB.setAttribute("alt","dummy-icon.png");
                 FAB.addEventListener("click",ev=>{
                     history.go(-1);
                 });
                 
 
-            app.theData.results.forEach(array=>{
+            data.results.forEach(array=>{
                 
                 
 
@@ -58,14 +57,29 @@ const app = {
                 let box=document.createElement("p");
                 box.setAttribute("class","box")
 
-                let profile_path = `https://image.tmdb.org/t/p/w185${array.profile_path}`;
-                let p_img=document.createElement("img");
-                p_img.setAttribute("src",profile_path);
-                p_img.setAttribute("alt","image is not available");
-                
+                    if(array.profile_path==null){
+                    let profile_path = "dummy-icon.png";
+                    let p_img=document.createElement("img");
+                    let br = document.createElement("br");
+                    p_img.setAttribute("src",profile_path);
+                    p_img.style.height="250px";
+                    p_img.style.width="185px";
+                    p_img.setAttribute("alt","dummy-icon");
+                    
+                    box.appendChild(p_img);
+                    p_img.insertAdjacentElement("afterend",br);
+                }else{
+                    let profile_path = `https://image.tmdb.org/t/p/w185${array.profile_path}`;
+                    let p_img=document.createElement("img");
+                    let br = document.createElement("br");
+                    p_img.setAttribute("src",profile_path);
+                    p_img.setAttribute("alt","icon");
+                    box.appendChild(p_img); 
+                    p_img.insertAdjacentElement("afterend",br);
+                  }
               
                 let link = document.createElement("a");
-                let br = document.createElement("br"); 
+                 
                 
                 link.textContent =text; 
                 
@@ -73,10 +87,11 @@ const app = {
                 
                 link.addEventListener("click",function(ev){
                     
+                    let third_page = document.getElementById('movies');
                     let FAB2 = document.createElement("img");
                 FAB2.setAttribute("src","search.svg");
                 FAB2.setAttribute("class","FAB");
-                FAB.setAttribute("alt","image is not available");
+                FAB.setAttribute("alt","dummy-icon.png");
                 FAB2.addEventListener("click",ev=>{
                     history.go(-2);
                 });
@@ -135,17 +150,32 @@ const app = {
                                         ca.textContent="Casts:"; 
                                         fourth_page.appendChild(ca);
                                         casts.cast.forEach(person=>{
-                                            let c_img=document.createElement("img");
-                                            c_profile=`https://image.tmdb.org/t/p/w185${person.profile_path}`;
-                                            c_img.setAttribute("src",c_profile);
-                                            c_img.setAttribute("alt","image is not available");
                                             let castname= document.createElement("p");
                                             castname.setAttribute("class","cast");
                                             castname.textContent=person.name;
                                             fourth_page.appendChild(castname);
+                                            if(person.profile_path==null){
+                                                let c_img=document.createElement("img");
+                                                c_profile=`dummy-icon.png`;
+                                                c_img.setAttribute("src",c_profile);
+                                                c_img.setAttribute("alt","image is not available");
+                                                c_img.style.height="250px";
+                                                c_img.style.width="185px";
+                                                let br3=document.createElement("br");
+                                                castname.appendChild(br3);
+                                                castname.appendChild(c_img); 
+                                            }
+                                            else{
+                                            let c_img=document.createElement("img");
+                                            c_profile=`https://image.tmdb.org/t/p/w185${person.profile_path}`;
+                                            c_img.setAttribute("src",c_profile);
+                                            c_img.setAttribute("alt","image is not available");
+                                            c_img.style.height="250px";
+                                            c_img.style.width="185px";
                                             let br3=document.createElement("br");
                                             castname.appendChild(br3);
                                             castname.appendChild(c_img);
+                                            }
                                         })
                                     })
                                     let fourth_page =document.getElementById("movie");
@@ -159,6 +189,7 @@ const app = {
                                     fourth_page.appendChild(FAB3);
                                     
                                     let m_image = document.createElement("img");
+                                    
                                     m_image.src = "https://image.tmdb.org/t/p/w342"+names.poster_path;
                                     m_image.setAttribute("alt","image is not available");
                                     
@@ -201,7 +232,6 @@ const app = {
                 second_page.appendChild(box);
                 box.appendChild(link);
                 
-                box.appendChild(p_img); 
                 
                 
             })
@@ -221,9 +251,20 @@ const app = {
         let hash = location.hash.replace('#' ,'');
         document.querySelector('.active').classList.remove('active');
         document.getElementById(hash).classList.add('active');
+        if(location.hash=="#actors"){app.deletethird();}
+        else if(location.hash=="#movies"){app.deletefourth();}
         
 
-    }
+    },
+    deletethird:(ev)=>{
+
+        let third= document.getElementById("movies");
+        third.innerHTML=""
+     },
+     deletefourth:(ev)=>{
+         let fourth= document.getElementById("movie");
+         fourth.innerHTML=""
+     }
     
 
    
